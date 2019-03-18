@@ -1,0 +1,1 @@
+/home/luis/bash_scripts/defaultBar.sh
