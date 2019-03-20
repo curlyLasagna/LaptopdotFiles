@@ -1,1 +1,34 @@
-../.bashrc.aliases
+#
+# ~/.bashrc.aliases
+#
+
+# System alias
+alias ls='ls --color=auto'
+alias lf="ls -lahG | grep -v '^d' --color=auto"
+alias ldir='ls -d */'
+alias pacrepo='sudo reflector -l 20 -f 10 --save /etc/pacman.d/mirrorlist'
+alias pacman='sudo pacman'
+alias journalctl='sudo journalctl'
+alias pacu='sudo pacman -Syu && yay -Sc'
+alias se='ls /usr/bin | grep'
+alias enabledSrvc='systemctl list-unit-files --state=enabled'
+alias disabledSrvc='systemctl list-unit-files --state=disabled'
+alias listSrvc='systemctl list-unit-files | grep'
+alias duncanGit='git remote set-url origin git@github.com:curlyLasanga/peen'
+alias rm='rm --interactive'
+alias meow='cat'
+
+# Custom Alias
+alias hpMouse="xinput --set-prop MOSART\ Semi.\ 2.4G\ Wireless\ Mouse\ Mouse 'libinput Accel Speed' -.95"
+alias i3="vim ~/.config/i3/config"
+alias i3stat='vim ~/.config/i3status/config'
+alias updateGrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias xSave="xrdb .Xresources"
+alias ply="~/bash_scripts/ply.sh"
+alias class="xprop | grep 'CLASS'"
+alias wifi="nmcli networking off && nmcli networking on"
+
+if [[ $LANG = '' ]]; then
+	export LANG=en_US.UTF-8
+fi
+

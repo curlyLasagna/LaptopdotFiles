@@ -1,0 +1,66 @@
+general {
+	colors = true
+	color_good = "#BBBBBB"
+	color_bad = "#CC1616"
+	color_degraded = "#55858E"
+	interval = 1
+}
+
+order += "volume master"
+order += "backlight"
+order += "battery all"
+#order += "cpu_temperature 0"
+order += "tztime local"
+order += "wireless wlp107s0"
+
+volume master {
+	#format = " 墳 %volume " 
+	format = " Vol %volume "
+	format_muted = " Mute " 
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+#cpu_usage {
+#	format = " ﲌ %usage "
+#}
+
+#cpu_temperature 0 {
+#	format = " 﨎 %degrees"
+#}
+
+#disk "/" {
+#	format = " ¨ %avail:/ " 
+#}
+
+#disk "/media/media" {
+#	format = " ¨ %avail:m "
+#}
+
+wireless wlp107s0 {
+#	format_up = " %essid %ip "
+	format_down = "RIP WiFi "
+	format_up = " %essid"
+}
+
+tztime local {
+	format = " %h-%d %l:%M %P "
+	timezone = "America/Phoenix"
+}
+
+battery all {
+	integer_battery_capacity = true
+	format = " Bat %percentage"
+	status_chr = " 🃟ﮣ %percentage Charging"
+	status_bat = " Not charging "
+	last_full_capacity = true
+	on_click 1 = "reload"
+	on_click 2 = "restart"
+	low_threshold = 20
+}
+
+backlight {
+	cache_timeout = 0	
+	format = " Light {level}% "
+}
