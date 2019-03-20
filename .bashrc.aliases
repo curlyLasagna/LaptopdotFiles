@@ -15,8 +15,8 @@ alias enabledSrvc='systemctl list-unit-files --state=enabled'
 alias disabledSrvc='systemctl list-unit-files --state=disabled'
 alias listSrvc='systemctl list-unit-files | grep'
 alias duncanGit='git remote set-url origin git@github.com:curlyLasanga/peen'
-alias rm='rm --interactive'
-alias meow='cat'
+alias rm='rm -I'
+alias cat='ccat'
 
 # Custom Alias
 alias hpMouse="xinput --set-prop MOSART\ Semi.\ 2.4G\ Wireless\ Mouse\ Mouse 'libinput Accel Speed' -.95"

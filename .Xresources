@@ -1,0 +1,137 @@
+URxvt*perl-lib: /home/luis/.urxvt/:/home/luis/.urxvt/urxvt-vim-scrollback
+URxvt*perl-ext-common: default,tabbedex,matcher,resize-font,vim-scrollback
+URxvt.vim-scrollback: M-q
+URxvt.vim-scrollback-bg: 16
+URxvt.vim-scrollback-fg: 10
+URxvt.font: xft:Gohu GohuFont:size=11
+URxvt.secondaryWheel: 1
+URxvt.scrollBar: false
+URxvt.internalBorder: 20
+URxvt.externalBorder: 10
+URxvt.borderLess: false
+URxvt.hold: false
+
+! URL options
+URxvt.urlLauncher: /usr/bin/firefox
+URxvt.urlButton: 1
+URxvt.underlineURLs: True
+
+
+! Xft
+!Xft.dpi: 180
+!Xft.rgba: rgb
+!Xft.hinting: true
+!Xft.hintstyle: hintfull
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank: true
+
+! Color Schemes !
+
+! Dracula 
+*.foreground:   #f8f8f2
+*.background: #0E181A
+!*.background:   #282a36
+
+
+*.color0:       #6272a4
+*.color1:       #ff5555
+*.color2:       #50fa7b
+*.color3:       #f1fa8c
+*.color4:       #bd93f9
+*.color5:       #ff79c6
+*.color6:       #8be9fd
+*.color7:       #bfbfbf
+*.color8:       #4d4d4d
+*.color9:       #ff6e67
+*.color10:      #5af78e
+*.color11:      #f4f99d
+*.color12:      #caa9fa
+*.color13:      #ff92d0
+*.color14:      #9aedfe
+*.color15:      #e6e6e6
+*.color16:      #0A1112 
+
+! Tab config
+URxvt.tabbed.tabbar-fg: 12
+URxvt.tabbed.tabbar-bg: 16
+URxvt.tabbed.tab-fg: 12
+URxvt.tabbed.tab-bg: 8
+
+! Tab keys
+!Shift + Down : New tab
+!Shift + Left : Go Left
+!Shift + Right : Go Right
+!Ctrl + Left : Move tab to the left
+!Ctrl + right : Move tab to the right
+!Ctrl + d : Close tab
+
+! Relic Dark
+!*background: #1D2426
+!Original foreground
+!*foreground: #8FA388
+!Alternate foreground
+!*foreground: #AB9C71
+
+!*cursorColor: #443568
+!*color0:  #39474A
+!*color1:  #986345
+!*color2:  #788249
+!*color3:  #9B6A46
+!*color4:  #3E5951
+!*color5:  #B9924A
+!*color6:  #5d796a
+!*color7:  #977D5E
+!*color8:  #4C5F63
+!*color9:  #B07350
+!*color10: #869151
+!*color11: #AF6B42
+!*color12: #567A6E
+!*color13: #D69D55
+!*color14: #668574
+!*color15: #AB9C71
+
+! Autumnal 
+!*background: #0E181A
+!*foreground: #F59549
+
+!*color0: #D8A396
+!*color1: #494A3E
+!*color2: #9C5033
+!*color3: #B04F41
+!*color4: #A95E4F
+!*color5: #6D826F
+!*color6: #CA8D67
+!*color7: #D8A396
+!*color8: #666666
+!*color9: #494A3E
+!*color10: #9C5033
+!*color11: #B04F41
+!*color12: #A95E4F
+!*color13: #6D826F
+!*color14: #CA8D67
+!*color15: #D8A396
+!*.color0: "#1D3624"
+!*.color8: "#1F3B27"
+!*.color1: "#9BCC80"
+!*.color9: "#9CCE81"
+!*.color2: "#BAFF94"
+!*.color10: "#BBFF95"
+!*.color3: "#C2FFAF"
+!*.color11: "#C3FFAF"
+!*.color4: "#5F7D4E"
+!*.color12: "#607D4F"
+!*.color5: "#C2FFA0"
+!*.color13: "#C3FFA1"
+!*.color6: "#C2FFA0"
+!*.color14: "#C3FFA1"
+!*.color7: "#DBFFC7"
+!*.color15: "#DCFFC8"
+
+
+! Roofie
+rofi.font: Inconsolata-Regular 11
