@@ -1,27 +1,28 @@
 URxvt*perl-lib: /home/luis/.urxvt/:/home/luis/.urxvt/urxvt-vim-scrollback
-URxvt*perl-ext-common: default,tabbedex,matcher,resize-font,vim-scrollback
-URxvt.vim-scrollback: M-q
-URxvt.vim-scrollback-bg: 16
-URxvt.vim-scrollback-fg: 10
+URxvt*perl-ext-common: default,tabbed,matcher,resize-font,vim-scrollback
 URxvt.font: xft:Gohu GohuFont:size=11
 URxvt.secondaryWheel: 1
 URxvt.scrollBar: false
-URxvt.internalBorder: 20
-URxvt.externalBorder: 10
-URxvt.borderLess: false
 URxvt.hold: false
 
 ! URL options
-URxvt.urlLauncher: /usr/bin/firefox
-URxvt.urlButton: 1
+URxvt.urlLauncher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 URxvt.underlineURLs: True
 
+! Vim-Scrollback
+URxvt.vim-scrollback: M-q
+URxvt.vim-scrollback-bg: 16
+URxvt.vim-scrollback-fg: 10
 
-! Xft
-!Xft.dpi: 180
-!Xft.rgba: rgb
-!Xft.hinting: true
-!Xft.hintstyle: hintfull
+! Borders
+URxvt.internalBorder: 20
+URxvt.externalBorder: 10
+URxvt.borderLess: false
+
+! Disable default binding 
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! Cursor
 URxvt.cursorBlink:          true
@@ -35,8 +36,6 @@ URxvt.pointerBlank: true
 ! Dracula 
 *.foreground:   #f8f8f2
 *.background: #0E181A
-!*.background:   #282a36
-
 
 *.color0:       #6272a4
 *.color1:       #ff5555

@@ -1,10 +1,15 @@
+#TODO: 
+	#Binary launch binding mode
+	#Screen flip binding mode 
+	#Save a tree layout
+
 # Windows key: Mod4
 # Alt key: Mod1
 set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango: DejaVu Sans 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -18,7 +23,7 @@ bindsym $mod+Shift+q kill
 
 # dmenu
 #bindsym $mod+d exec rofi -modi drun -show 
-bindsym $mod+d exec dmenu_run -i -l 8 -w 750 -y 400 -x 600 -fn 'Gohu GohuFont'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'DejaVu Sans-10' -p "Go Go Gadget" -w 500 -x 700 -nb '#0F0F0F'
 
 # change focus
 bindsym $mod+h focus left
@@ -111,37 +116,60 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+mode "Resize" {
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+	# back to normal
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+
+mode "Move" {
+
+	bindsym h move left 25 px 
+	bindsym j move down 20 px 
+	bindsym k move up 20 px 
+	bindsym l move right 25 px 
+
+	# back to normal
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode "URxvt" {
+
+	bindsym e exec urxvt -e ranger
+	bindsym v exec urxvt -e vim
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	
+}
+
+# MODES 
+bindsym $mod+m mode "Move"
+bindsym $mod+r mode "Resize"
+bindsym $mod+Shift+d mode "URxvt"
 
 bar {
+
 	status_command py3status -c ~/.config/i3status/config
-	font pango: Gohu GohuFont 12
+	font pango: DejaVu Sans 11
 	strip_workspace_numbers yes
 	mode dock 
 	tray_padding 2 
 	position top
 
 	colors {
-		background #080809
+		background #0F0F0F
 	}
+
 }
 
 # Pulse Audio controls
@@ -150,20 +178,23 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
 
 # Screen brightness controls 
-bindsym XF86MonBrightnessUp exec xbacklight +5
-bindsym XF86MonBrightnessDown exec xbacklight -5
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # Wallpaper 
-exec_always feh --bg-max Pictures/Weeb/cozy.jpg
+exec_always --no-startup-id feh --bg-fill Pictures/Normie/whiteRose.jpg
+
+# Lock
+bindsym $mod + ctrl + x exec ~/bash_scripts/lock.sh
 
 # Start up programs 
-exec_always compton --config ~/.config/compton.conf #Compositor
-exec_always xset -b # Bells are dumb
+exec_always --no-startup-id compton --config ~/.config/compton.conf #Compositor
+exec_always --no-startup-id xset -b # Bells are dumb
 exec --no-startup-id nm-applet  
 exec thunderbird # Mail
 
 # Assign programs to workspaces 
-assign [class="Thunderbird"] $ws2 
+assign [class="Thunderbird"] $ws1 
 
 # Program hotkeys 
 bindsym $mod + c exec speedcrunch # Calculator
@@ -179,11 +210,10 @@ bindsym $mod + Ctrl + l focus output left
 bindsym $mod + Ctrl + h focus output right
 
 # Floatables
-default_border pixel 0
-default_floating_border none
-for_window [class = "URxvt"] floating enable, border pixel 5 
+default_border none
+default_floating_border none 
+for_window [class = "URxvt"] title_format " ", border normal 0  
 for_window [class = "discord"] floating enable 
-for_window [class = "Spotify"] floating enable 
 for_window [class = "Browser"] floating enable 
 for_window [class = "feh"] floating enable  
 for_window [class = "SpeedCrunch"] floating enable 
@@ -195,6 +225,9 @@ for_window [class = "Blueberry.py"] floating enable
 for_window [class = "Redshiftgui.elf"] floating enable
 for_window [class = "Lxappearance"] floating enable
 for_window [class = "qt5ct"] floating enable
+
+# Automatic back-and-forth
+workspace_auto_back_and_forth yes
 
 #set $focused "#CE55B6"
 #set $ccolor "#efebe0"
@@ -208,4 +241,6 @@ for_window [class = "qt5ct"] floating enable
 ##client.unfocused        $focused    $unfocused  $ccolor $cindiu   $unfocused
 ##client.urgent           $focused    $unfocused  $ccolor $cindi   $unfocused
 
+# No borders
 hide_edge_borders smart
+hide_edge_borders both

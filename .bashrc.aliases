@@ -3,6 +3,7 @@
 #
 
 # System alias
+alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias lf="ls -lahG | grep -v '^d' --color=auto"
 alias ldir='ls -d */'
@@ -19,7 +20,8 @@ alias rm='rm -I'
 alias cat='ccat'
 
 # Custom Alias
-alias hpMouse="xinput --set-prop MOSART\ Semi.\ 2.4G\ Wireless\ Mouse\ Mouse 'libinput Accel Speed' -.95"
+alias hpMouse="xinput --set-prop MOSART\ Semi.\ 2.4G\ Wireless\ Mouse 'libinput Accel Speed' -.75"
+alias cls="printf '\033c'"
 alias i3="vim ~/.config/i3/config"
 alias i3stat='vim ~/.config/i3status/config'
 alias updateGrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -27,6 +29,7 @@ alias xSave="xrdb .Xresources"
 alias ply="~/bash_scripts/ply.sh"
 alias class="xprop | grep 'CLASS'"
 alias wifi="nmcli networking off && nmcli networking on"
+alias reloadDunst='killall dunst; notify-send testing'
 
 if [[ $LANG = '' ]]; then
 	export LANG=en_US.UTF-8
