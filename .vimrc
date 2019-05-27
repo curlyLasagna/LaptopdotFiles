@@ -1,5 +1,5 @@
 cmap w!! w !sudo tee > /dev/null %
-colo peachpuff
+colo ron
 set number
 set mouse=a
 syntax enable

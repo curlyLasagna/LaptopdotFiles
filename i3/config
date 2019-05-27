@@ -182,10 +182,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # Wallpaper 
-exec_always --no-startup-id feh --bg-fill Pictures/Normie/whiteRose.jpg
+exec_always --no-startup-id feh --bg-fill Pictures/Normie/houses.jpg
 
 # Lock
-bindsym $mod + ctrl + x exec ~/bash_scripts/lock.sh
+bindsym mod1 + ctrl + l exec ~/bash_scripts/lock.sh
 
 # Start up programs 
 exec_always --no-startup-id compton --config ~/.config/compton.conf #Compositor

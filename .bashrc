@@ -12,8 +12,9 @@ export LESSOPEN='|~/.lessfilter %s'
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-#PS1='[\u@\h \W]\$ ' Default 
-PS1="\\$ \W\[$(tput sgr0)\] "
+#PS1='[\u@\h \W]\$ '# Default 
+PS1='[\W]$ ' # Default 
+#PS1="\\$ \W\[$(tput sgr0)\] "
 
 if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
