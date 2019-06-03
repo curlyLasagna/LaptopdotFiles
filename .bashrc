@@ -36,7 +36,3 @@ eval "$(pyenv virtualenv-init -)"
 
 # Vi mode 
 #set -o vi
-
-EDITOR=/usr/bin/vim
-PDF=/usr/bin/zathura
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
