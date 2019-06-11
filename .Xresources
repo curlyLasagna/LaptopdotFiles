@@ -1,12 +1,12 @@
 URxvt*perl-lib: /home/luis/.urxvt/:/home/luis/.urxvt/urxvt-vim-scrollback
-URxvt*perl-ext-common: default,tabbed,matcher,resize-font,vim-scrollback
+URxvt*perl-ext-common: default,matcher,vim-scrollback
+URxvt.url-launcher:/usr/bin/xdg-open
 URxvt.font: xft:Gohu GohuFont:size=11
 URxvt.secondaryWheel: 1
 URxvt.scrollBar: false
 URxvt.hold: false
 
 ! URL options
-URxvt.urlLauncher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.underlineURLs: True
 
@@ -33,104 +33,78 @@ URxvt.pointerBlank: true
 
 ! Color Schemes !
 
-! Dracula 
-*.foreground:   #f8f8f2
-*.background: #0E181A
-
-*.color0:       #6272a4
-*.color1:       #ff5555
-*.color2:       #50fa7b
-*.color3:       #f1fa8c
-*.color4:       #bd93f9
-*.color5:       #ff79c6
-*.color6:       #8be9fd
-*.color7:       #bfbfbf
-*.color8:       #4d4d4d
-*.color9:       #ff6e67
-*.color10:      #5af78e
-*.color11:      #f4f99d
-*.color12:      #caa9fa
-*.color13:      #ff92d0
-*.color14:      #9aedfe
-*.color15:      #e6e6e6
-*.color16:      #0A1112 
-
-! Tab config
-URxvt.tabbed.tabbar-fg: 12
-URxvt.tabbed.tabbar-bg: 16
-URxvt.tabbed.tab-fg: 12
-URxvt.tabbed.tab-bg: 8
-
-! Tab keys
-!Shift + Down : New tab
-!Shift + Left : Go Left
-!Shift + Right : Go Right
-!Ctrl + Left : Move tab to the left
-!Ctrl + right : Move tab to the right
-!Ctrl + d : Close tab
-
-! Relic Dark
-!*background: #1D2426
-!Original foreground
-!*foreground: #8FA388
-!Alternate foreground
-!*foreground: #AB9C71
-
-!*cursorColor: #443568
-!*color0:  #39474A
-!*color1:  #986345
-!*color2:  #788249
-!*color3:  #9B6A46
-!*color4:  #3E5951
-!*color5:  #B9924A
-!*color6:  #5d796a
-!*color7:  #977D5E
-!*color8:  #4C5F63
-!*color9:  #B07350
-!*color10: #869151
-!*color11: #AF6B42
-!*color12: #567A6E
-!*color13: #D69D55
-!*color14: #668574
-!*color15: #AB9C71
-
-! Autumnal 
-!*background: #0E181A
-!*foreground: #F59549
-
-!*color0: #D8A396
-!*color1: #494A3E
-!*color2: #9C5033
-!*color3: #B04F41
-!*color4: #A95E4F
-!*color5: #6D826F
-!*color6: #CA8D67
-!*color7: #D8A396
-!*color8: #666666
-!*color9: #494A3E
-!*color10: #9C5033
-!*color11: #B04F41
-!*color12: #A95E4F
-!*color13: #6D826F
-!*color14: #CA8D67
-!*color15: #D8A396
-!*.color0: "#1D3624"
-!*.color8: "#1F3B27"
-!*.color1: "#9BCC80"
-!*.color9: "#9CCE81"
-!*.color2: "#BAFF94"
-!*.color10: "#BBFF95"
-!*.color3: "#C2FFAF"
-!*.color11: "#C3FFAF"
-!*.color4: "#5F7D4E"
-!*.color12: "#607D4F"
-!*.color5: "#C2FFA0"
-!*.color13: "#C3FFA1"
-!*.color6: "#C2FFA0"
-!*.color14: "#C3FFA1"
-!*.color7: "#DBFFC7"
-!*.color15: "#DCFFC8"
-
+!*.foreground:   #d1c4be
+!*.background:   #14100f
+!*.cursorColor:  #d1c4be
+!
+!! black
+!*.color0:       #1f1b18
+!*.color8:       #67a88f
+!
+!! red
+!*.color1:       #292320
+!*.color9:       #e8c1af
+!
+!! green
+!*.color2:       #3b3430
+!*.color10:      #92c9da
+!
+!! yellow
+!*.color3:       #554a46
+!*.color11:      #a6b563
+!
+!! blue
+!*.color4:       #756760
+!*.color12:      #a4b26c
+!
+!! magenta
+!*.color5:       #9b8981
+!*.color13:      #a68ede
+!
+!! cyan
+!*.color6:       #c4b1a9
+!*.color14:      #cdc5e5
+!
+!! white
+!*.color7:       #e7e1df
+!*.color15:      #5ab090
 
 ! Roofie
 rofi.font: Inconsolata-Regular 11
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #a54242
+*.color9:       #cc6666
+
+! green
+*.color2:       #8c9440
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #de935f
+*.color11:      #f0c674
+
+! blue
+*.color4:       #5f819d
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6

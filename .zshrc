@@ -14,11 +14,11 @@ ZSH_THEME="sunrise"
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-ZSH_THEME_RANDOM_CANDIDATES=( 
-	"minimal"
-	"gnzh"
-	"sunrise"
-)
+#ZSH_THEME_RANDOM_CANDIDATES=( 
+#	"minimal"
+#	"gnzh"
+#	"sunrise"
+#)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -75,10 +75,16 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
 	git
 	zsh-less-colors
+	archlinux
+	lol
 )
 
 source $ZSH/oh-my-zsh.sh
 
+# Cool feature, forgot what it does
+# setopt autocd autopushd \ pushdignoredups
+# Vim mode
+# bindkey -v 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

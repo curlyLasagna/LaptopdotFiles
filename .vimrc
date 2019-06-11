@@ -32,15 +32,22 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"Custom keymaps
 cmap w!! w !sudo tee > /dev/null %
+
+" Colorscheme
 colo ron
+
+" Misc Options
 set number
+" Mouse emulation within vim 
 set mouse=a
 syntax enable
-set shiftwidth=2 
-set tabstop=2
-set laststatus=2
-set statusline=%F
+
+" Tabbing options
+set shiftwidth=4 
+set tabstop=4
+set smarttab
 
 " Autostart NerdTree
 autocmd StdinReadPre * let s:std_in=1
@@ -50,4 +57,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 highlight Pmenu ctermfg=15 ctermbg=53 
 highlight PmenuSel ctermfg=7 ctermbg=54
 highlight Todo ctermfg=16 ctermbg=3
+highlight ALEWarning term=underline cterm=underline ctermfg=9 
+highlight ALEStyleWarning term=underline cterm=underline ctermfg=9 
+highlight ALEInfo term=underline cterm=underline ctermfg=9 
 
