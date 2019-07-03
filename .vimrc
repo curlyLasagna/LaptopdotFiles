@@ -16,6 +16,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
+" HTML Plugins
+Plugin 'mattn/emmet-vim'
+Plugin 'gregsexton/MatchTag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -28,9 +31,6 @@ filetype plugin indent on    " required
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 "Custom keymaps
 cmap w!! w !sudo tee > /dev/null %
@@ -40,6 +40,7 @@ colo ron
 
 " Misc Options
 set number
+
 " Mouse emulation within vim 
 set mouse=a
 syntax enable
@@ -57,7 +58,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 highlight Pmenu ctermfg=15 ctermbg=53 
 highlight PmenuSel ctermfg=7 ctermbg=54
 highlight Todo ctermfg=16 ctermbg=3
-highlight ALEWarning term=underline cterm=underline ctermfg=9 
-highlight ALEStyleWarning term=underline cterm=underline ctermfg=9 
-highlight ALEInfo term=underline cterm=underline ctermfg=9 
+highlight ALEWarning term=underline cterm=underline ctermfg=190 
+highlight ALEStyleWarning term=underline cterm=underline ctermfg=190 
+highlight ALEInfo term=underline cterm=underline ctermfg=190 
 
+" lightline options
+set laststatus=2
+set noshowmode
+let g:lightline = {
+	\ 'colorscheme': 'seoul256',
+	\ }

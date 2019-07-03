@@ -1,10 +1,12 @@
 URxvt*perl-lib: /home/luis/.urxvt/:/home/luis/.urxvt/urxvt-vim-scrollback
 URxvt*perl-ext-common: default,matcher,vim-scrollback
 URxvt.url-launcher:/usr/bin/xdg-open
-URxvt.font: xft:Gohu GohuFont:size=11
+! URxvt.font: xft:Gohu GohuFont:size=11
+URxvt.font: xft:Inconsolata for Powerline:size=12
 URxvt.secondaryWheel: 1
 URxvt.scrollBar: false
 URxvt.hold: false
+URxvt*iconFile: /usr/share/icons/ePapirus/32x32/apps/gnome-terminal.svg
 
 ! URL options
 URxvt.matcher.button: 1

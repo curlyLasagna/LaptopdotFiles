@@ -8,16 +8,16 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="sunrise"
+ZSH_THEME="rkj-repos"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 #ZSH_THEME_RANDOM_CANDIDATES=( 
-#	"minimal"
-#	"gnzh"
-#	"sunrise"
+#	jonathan
+#	
+#	xiong-chiamiov
 #)
 
 # Uncomment the following line to use case-sensitive completion.
@@ -46,7 +46,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -131,8 +131,3 @@ alias ply="~/bash_scripts/ply.sh"
 alias class="xprop | grep 'CLASS'"
 alias wifi="nmcli networking off && nmcli networking on"
 alias reloadDunst='killall dunst; notify-send testing'
-
-if [[ $LANG = '' ]]; then
-	export LANG=en_US.UTF-8
-fi
-
