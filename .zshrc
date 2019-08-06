@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="rkj-repos"
+ZSH_THEME="gnzh"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -16,8 +16,8 @@ ZSH_THEME="rkj-repos"
 # If set to an empty array, this variable will have no effect.
 #ZSH_THEME_RANDOM_CANDIDATES=( 
 #	jonathan
-#	
 #	xiong-chiamiov
+#
 #)
 
 # Uncomment the following line to use case-sensitive completion.
@@ -83,12 +83,14 @@ source $ZSH/oh-my-zsh.sh
 
 # Cool feature, forgot what it does
 # setopt autocd autopushd \ pushdignoredups
+
 # Vim mode
-# bindkey -v 
-# User configuration
+#bindkey -v 
+#export KEYTIMEOUT=1
 
+						# User configuration #
+						
 # export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -131,3 +133,5 @@ alias ply="~/bash_scripts/ply.sh"
 alias class="xprop | grep 'CLASS'"
 alias wifi="nmcli networking off && nmcli networking on"
 alias reloadDunst='killall dunst; notify-send testing'
+alias gnomeThemes='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+alias espeak='espeak -p 60 -s 120' 

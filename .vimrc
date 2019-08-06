@@ -38,7 +38,7 @@ cmap w!! w !sudo tee > /dev/null %
 " Colorscheme
 colo ron
 
-" Misc Options
+" Line numbers
 set number
 
 " Mouse emulation within vim 
@@ -49,6 +49,10 @@ syntax enable
 set shiftwidth=4 
 set tabstop=4
 set smarttab
+
+" vim-Terminal configuration
+set termwinsize=30*0
+set splitbelow
 
 " Autostart NerdTree
 autocmd StdinReadPre * let s:std_in=1

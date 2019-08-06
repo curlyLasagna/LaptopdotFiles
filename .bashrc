@@ -36,3 +36,5 @@ eval "$(pyenv virtualenv-init -)"
 
 # Vi mode 
 #set -o vi
+
+export PATH

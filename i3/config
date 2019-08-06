@@ -15,15 +15,13 @@ font pango: DejaVu Sans 12
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # dmenu
-#bindsym $mod+d exec rofi -modi drun -show 
-bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'DejaVu Sans-10' -p "Go Go Gadget" -w 500 -x 700 -nb '#0F0F0F'
+bindsym $mod+d exec rofi -show drun -show-icons -icon-theme MY_ICON_THEME
 
 # change focus
 bindsym $mod+h focus left
@@ -63,9 +61,6 @@ bindsym $mod+a focus parent
 # mouse focus
 focus_follows_mouse no
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: I "
@@ -95,7 +90,7 @@ bindsym $mod+0 workspace $ws10
 bindsym $mod+Tab workspace next
 bindsym $mod+q workspace prev
 
-# Change focus to the next monitor 
+# Change focus to the next display 
 bindsym $mod + Ctrl + l focus output left
 bindsym $mod + Ctrl + h focus output right
 
@@ -144,20 +139,21 @@ mode "Move" {
 	bindsym Escape mode "default"
 }
 
-mode "URxvt" {
+mode "External Monitor(s)" {
 
-	bindsym e exec urxvt -e ranger
-	bindsym v exec urxvt -e vim
+	bindsym h exec --no-startup-id xrandr --output DP2 --auto --left-of eDP1
+	bindsym l exec --no-startup-id xrandr --output DP2 --auto --right-of eDP1
+	bindsym Shift+x exec --no-startup-id xrandr --output DP2 --auto --off
 
+	# back to normal
 	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	
+    bindsym Escape mode "default"
 }
 
 # MODES 
 bindsym $mod+m mode "Move"
 bindsym $mod+r mode "Resize"
-bindsym $mod+Shift+d mode "URxvt"
+bindsym $mod+Shift+m mode "External Monitor(s)"
 
 # py3status 
 bar {
@@ -175,42 +171,43 @@ bar {
 
 }
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
+# Volume controls with volume notification
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh down
+bindsym XF86AudioMute exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh mute
 
-# Screen brightness controls 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
+
+# Screen brightness with brightness notification
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/gitClones/volume-notification-dunst/brightness.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/gitClones/volume-notification-dunst/brightness.sh down
 
 # Wallpaper 
-exec_always --no-startup-id feh --bg-fill Pictures/Normie/houses.jpg
+exec_always --no-startup-id feh --bg-fill Pictures/Normie/maldives.jpg
 
 # Lock
 bindsym mod1 + ctrl + l exec ~/bash_scripts/lock.sh
 
 # Start up programs 
-exec_always --no-startup-id compton --config ~/.config/compton.conf 						# Compositor
+ exec_always --no-startup-id compton --config ~/.config/compton.conf 						# Compositor 
 exec_always --no-startup-id xset -b 														# Bells are dumb
 exec --no-startup-id nm-applet 																# Network manager applet 
-
-# Assign programs to workspaces 
-assign [class="Thunderbird"] $ws1 
+exec --no-startup-id redshift-gtk 															# My EYES!
+exec --no-startup-id xset 300 480 600														# Screen not turning off?
+exec --no-startup-id dunst																	# dunst suddenly not working, df?
 
 # Program hotkeys 
 bindsym $mod + c exec speedcrunch 															# Calculator
 bindsym $mod + p exec pavucontrol 															# Pulse gui audio
-
+bindsym $mod + e exec nautilus 																# File explorer
 # xRandr rotations
 bindsym $mod + Shift + i exec xrandr --output eDP1 --rotate inverted 
 bindsym $mod + Shift + n exec xrandr --output eDP1 --rotate normal
 
-
 # Floatables
-default_border none
-default_floating_border none 
-for_window [class = "URxvt"] title_format " ", border normal 0  
+default_border pixel 3
+# default_floating_border none 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 for_window [class = "discord"] floating enable 
 for_window [class = "feh"] floating enable  
 for_window [class = "SpeedCrunch"] floating enable 
@@ -226,21 +223,71 @@ for_window [class = "qt5ct"] floating enable
 workspace_auto_back_and_forth yes
 
 # Window colors
-#set $focused "#CE55B6"
-#set $ccolor "#efebe0"
-#set $unfocused "#191C21" 
-#set $cindi "#145ba7"
-#set $cindiu "#8a9db1"
+set $focused "#979ba1"
+set $ccolor "#efebe0"
+set $unfocused "#191C21" 
+set $cindi "#145ba7"
+set $cindiu "#8a9db1"
 
 #Colors                 #border  #backgr   #text   #indicator #child_border
-##client.focused          $focused    $focused    $ccolor $cindi   $focused
-##client.focused_inactive $focused    $unfocused  $ccolor $cindiu   $unfocused
-##client.unfocused        $focused    $unfocused  $ccolor $cindiu   $unfocused
-##client.urgent           $focused    $unfocused  $ccolor $cindi   $unfocused
+client.focused          $focused    $focused    $ccolor $cindi   $focused
+client.focused_inactive $focused    $unfocused  $ccolor $cindiu   $unfocused
+client.unfocused        $focused    $unfocused  $ccolor $cindiu   $unfocused
+client.urgent           $focused    $unfocused  $ccolor $cindi   $unfocused
 
-# No borders
-hide_edge_borders smart
-hide_edge_borders both
+# GAPS! :)
+gaps inner 10
+gaps outer 5
 
-# Split orientations
-default_orientation vertical 			# start in opposite orientation from your monitor
+# Gap hotkeys
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Rounded Corners 
+#border_radium 10
+
+# Unused config
+
+# Pulse Audio controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ unmute
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- unmute
+#bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
+
+# Screen brightness controls 
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+#bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'DejaVu Sans-10' -p "Go Go Gadget" -w 500 -x 700 -nb '#0F0F0F'
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
