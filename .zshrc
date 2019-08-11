@@ -133,5 +133,4 @@ alias ply="~/bash_scripts/ply.sh"
 alias class="xprop | grep 'CLASS'"
 alias wifi="nmcli networking off && nmcli networking on"
 alias reloadDunst='killall dunst; notify-send testing'
-alias gnomeThemes='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
-alias espeak='espeak -p 60 -s 120' 
+alias hpMouse='xinput --set-prop "MOSART Semi. 2.4G Wireless Mouse" "libinput Accel Speed" -.90'

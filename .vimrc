@@ -72,3 +72,6 @@ set noshowmode
 let g:lightline = {
 	\ 'colorscheme': 'seoul256',
 	\ }
+
+" .rasi syntax highlighting
+au BufNewFile,BufRead /*.rasi setf css
