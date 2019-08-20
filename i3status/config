@@ -9,12 +9,12 @@ general {
 order += "volume master"
 order += "backlight"
 order += "battery all"
-#order += "cpu_temperature 0"
+order += "sysdata"
 order += "tztime local"
+#order += "whatismyip"
 order += "wireless wlp107s0"
 
 volume master {
-	#format = " 墳 %volume " 
 	format = " Vol %volume "
 	format_muted = " Mute " 
 	device = "default"
@@ -22,13 +22,15 @@ volume master {
 	mixer_idx = 0
 }
 
-#cpu_usage {
-#	format = " ﲌ %usage "
-#}
+thunderbird_todos {
+	format_todo = '\?if=todo_completed&color=good {title}|\?color=bad {title}'
+}
 
-#cpu_temperature 0 {
-#	format = " 﨎 %degrees"
-#}
+sysdata {
+	cpu_freq_unit = 'MHz'
+	format = " CPU: [{cpu_temp}], [{cpu_freq_avg}] Mhz, [{cpu_used_percent}%] , RAM: {mem_used}/{mem_total} Gb "
+	cache_timeout = 1
+}
 
 #disk "/" {
 #	format = " ¨ %avail:/ " 
@@ -38,10 +40,14 @@ volume master {
 #	format = " ¨ %avail:m "
 #}
 
+whatismyip {
+	format = " {ip} "
+}
+
 wireless wlp107s0 {
-#	format_up = " %essid %ip "
 	format_down = "RIP WiFi "
 	format_up = " %essid"
+#	format_up = " %essid %ip "
 }
 
 tztime local {

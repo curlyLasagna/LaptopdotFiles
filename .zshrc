@@ -77,6 +77,7 @@ plugins=(
 	zsh-less-colors
 	archlinux
 	lol
+	#colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -94,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Run tmux on startup
+# [[ $TERM != "screen" ]] && exec tmux
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -105,32 +109,10 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# plugins, and themes. 
 # For a full list of active aliases, run `alias`.
-
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-alias lf="ls -lahG | grep -v '^d' --color=auto"
-alias ldir='ls -d */'
-alias pacrepo='sudo reflector -l 20 -f 10 --save /etc/pacman.d/mirrorlist'
-alias pacman='sudo pacman'
-alias journalctl='sudo journalctl'
-alias pacu='sudo pacman -Syu && yay -Sc'
-alias se='ls /usr/bin | grep'
-alias enabledSrvc='systemctl list-unit-files --state=enabled'
-alias disabledSrvc='systemctl list-unit-files --state=disabled'
-alias listSrvc='systemctl list-unit-files | grep'
-alias rm='rm -I'
-alias cat='ccat'
-alias free='free -h'
-alias cls="printf '\033c'"
-alias i3="vim ~/.config/i3/config"
-alias i3stat='vim ~/.config/i3status/config'
-alias updateGrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias xSave="xrdb .Xresources"
-alias ply="~/bash_scripts/ply.sh"
-alias class="xprop | grep 'CLASS'"
-alias wifi="nmcli networking off && nmcli networking on"
-alias reloadDunst='killall dunst; notify-send testing'
-alias hpMouse='xinput --set-prop "MOSART Semi. 2.4G Wireless Mouse" "libinput Accel Speed" -.90'
+if [ -f ~/.zshrc.aliases ]; then
+	source ~/.zshrc.aliases 
+else
+	print "No alias file found"
+fi
