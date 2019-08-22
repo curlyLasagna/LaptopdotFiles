@@ -9,7 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'itchyny/lightline.vim'
@@ -65,6 +64,15 @@ highlight Todo ctermfg=16 ctermbg=3
 highlight ALEWarning term=underline cterm=underline ctermfg=190 
 highlight ALEStyleWarning term=underline cterm=underline ctermfg=190 
 highlight ALEInfo term=underline cterm=underline ctermfg=190 
+
+"YCM global config
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
 
 " lightline options
 set laststatus=2
