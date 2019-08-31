@@ -62,6 +62,10 @@ set splitbelow
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" Enable ColorHighlight on startup 
+let g:colorizer_auto_color = 1
+let g:colorizer_skip_comments = 1
+
 " Highlight Colors
 highlight Pmenu ctermfg=15 ctermbg=53 
 highlight PmenuSel ctermfg=7 ctermbg=54
