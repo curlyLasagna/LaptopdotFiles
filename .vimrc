@@ -9,15 +9,20 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+" Linting
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
+"Cool status line 
 Plugin 'itchyny/lightline.vim'
+"Directory listing
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 " HTML Plugins
 Plugin 'mattn/emmet-vim'
 Plugin 'gregsexton/MatchTag'
+"Color highlight
+Plugin 'chrisbra/Colorizer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,7 +40,7 @@ filetype plugin indent on    " required
 cmap w!! w !sudo tee > /dev/null %
 
 " Colorscheme
-colo ron
+colo default
 
 " Line numbers
 set number
