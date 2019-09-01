@@ -40,7 +40,7 @@ filetype plugin indent on    " required
 cmap w!! w !sudo tee > /dev/null %
 
 " Colorscheme
-colo default
+colo elflord
 
 " Line numbers
 set number
@@ -58,13 +58,12 @@ set smarttab
 set termwinsize=30*0
 set splitbelow
 
+" CDC = Change to Directory of Current file
+command CDC cd %:p:h
+
 " Autostart NerdTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Enable ColorHighlight on startup 
-let g:colorizer_auto_color = 1
-let g:colorizer_skip_comments = 1
 
 " Highlight Colors
 highlight Pmenu ctermfg=15 ctermbg=53 

@@ -36,12 +36,11 @@ font-4 = Segoe UI Symbol:pixelsize=11;2
 
 ; Modules location
 modules-left = i3 xwindow
-modules-center = date spotify pulseaudio 
-modules-right = battery wlan 
+modules-center = date spotify pulseaudio powermenu 
+modules-right =  battery wlan
 
 ; Tray settings
 tray-maxsize = 16
-tray-sclae = 0
 tray-position = right
 tray-padding = 2
 
