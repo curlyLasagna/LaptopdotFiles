@@ -156,20 +156,20 @@ bindsym $mod+r mode "Resize"
 bindsym $mod+Shift+m mode "External Monitor(s)"
 
 # py3status 
-bar {
-
-	status_command py3status -c ~/.config/i3status/config
-	font pango: DejaVu Sans 11
-	strip_workspace_numbers yes
-	mode dock 
-	tray_padding 2 
-	position top
-
-	colors {
-		background #0F0F0F
-	}
-
-}
+#bar {
+#
+#	status_command py3status -c ~/.config/i3status/config
+#	font pango: DejaVu Sans 11
+#	strip_workspace_numbers yes
+#	mode dock 
+#	tray_padding 2 
+#	position top
+#
+#	colors {
+#		background #0F0F0F
+#	}
+#
+#}
 
 # Volume controls with volume notification
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh up
@@ -189,11 +189,11 @@ bindsym mod1 + ctrl + l exec ~/bash_scripts/lock.sh
 
 # Start up programs 
 exec_always --no-startup-id compton --config ~/.config/compton.conf 						# Compositor 
-exec --no-startup-id xset -b 														# Bells are dumb
+exec --no-startup-id xset -b 																# Bells are dumb
 exec --no-startup-id nm-applet 																# Network manager applet 
 exec --no-startup-id redshift-gtk 															# My EYES!
-exec --no-startup-id xset dpms 300 480 600														# Screen not turning off?
 exec --no-startup-id dunst																	# dunst suddenly not working, df?
+exec_always --no-startup-id ~/bash_scripts/defaultBar.sh
 
 # Program hotkeys 
 bindsym $mod + c exec speedcrunch 															# Calculator

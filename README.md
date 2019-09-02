@@ -6,3 +6,4 @@ wm: i3
 bar: polybar
 app launcher: rofi
 notifier: dunst
+	
