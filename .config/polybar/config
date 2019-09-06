@@ -12,8 +12,6 @@ fixed-center = true
 ; Colors 
 background = ${colors.background}
 foreground = ${colors.foreground}
-border-color = ${colors.border}
-border-bottom-size = 2
 
 ; Number of spaces to add at the beginning/end of the bar
 ; Individual side values can be defined using: 

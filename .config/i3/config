@@ -1,15 +1,8 @@
-#TODO: 
-	#Binary launch binding mode
-	#Screen flip binding mode 
-	#Save a tree layout
-
 # Windows key: Mod4
 # Alt key: Mod1
 set $mod Mod4
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: DejaVu Sans 12
+###									Window Settings									###	
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -19,9 +12,6 @@ bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# dmenu
-bindsym $mod+d exec rofi -show drun -show-icons -icon-theme MY_ICON_THEME
 
 # change focus
 bindsym $mod+h focus left
@@ -57,9 +47,6 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# mouse focus
-focus_follows_mouse no
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -106,13 +93,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'"
-
 # resize window (you can also use the mouse for that)
 mode "Resize" {
 
@@ -139,21 +119,9 @@ mode "Move" {
 	bindsym Escape mode "default"
 }
 
-mode "External Monitor(s)" {
-
-	bindsym h exec --no-startup-id xrandr --output DP2 --auto --left-of eDP1
-	bindsym l exec --no-startup-id xrandr --output DP2 --auto --right-of eDP1
-	bindsym Shift+x exec --no-startup-id xrandr --output DP2 --auto --off
-
-	# back to normal
-	bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 # MODES 
 bindsym $mod+m mode "Move"
 bindsym $mod+r mode "Resize"
-bindsym $mod+Shift+m mode "External Monitor(s)"
 
 # py3status 
 #bar {
@@ -171,18 +139,17 @@ bindsym $mod+Shift+m mode "External Monitor(s)"
 #
 #}
 
-# Volume controls with volume notification
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh up
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh down
-bindsym XF86AudioMute exec --no-startup-id ~/gitClones/volume-notification-dunst/volume.sh mute
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- unmute
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
 
-
-# Screen brightness with brightness notification
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/gitClones/volume-notification-dunst/brightness.sh up
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/gitClones/volume-notification-dunst/brightness.sh down
+# Screen brightness controls 
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # Wallpaper 
-exec_always --no-startup-id feh --bg-fill Pictures/Normie/maldives.jpg
+exec_always --no-startup-id feh --bg-fill Pictures/Normie/Signals.jpg
 
 # Lock
 bindsym mod1 + ctrl + l exec ~/bash_scripts/lock.sh
@@ -198,14 +165,13 @@ exec_always --no-startup-id ~/bash_scripts/defaultBar.sh
 # Program hotkeys 
 bindsym $mod + c exec speedcrunch 															# Calculator
 bindsym $mod + p exec pavucontrol 															# Pulse gui audio
-bindsym $mod + e exec nautilus 																# File explorer
+
 # xRandr rotations
 bindsym $mod + Shift + i exec xrandr --output eDP1 --rotate inverted 
 bindsym $mod + Shift + n exec xrandr --output eDP1 --rotate normal
 
 # Floatables
-default_border pixel 3
-# default_floating_border none 
+for_window [class="^.*"] border pixel 0 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class = "discord"] floating enable 
@@ -219,23 +185,31 @@ for_window [class = "Blueberry.py"] floating enable
 for_window [class = "Lxappearance"] floating enable
 for_window [class = "qt5ct"] floating enable
 
+###									Misc.									###
+
+# Rounded corners 
+border_radius 2
+
+# mouse focus
+focus_follows_mouse no
+
 # Automatic back-and-forth from previous desktop
 workspace_auto_back_and_forth yes
 
-# Window colors
-set $focused "#979ba1"
-set $ccolor "#efebe0"
-set $unfocused "#191C21" 
-set $cindi "#145ba7"
-set $cindiu "#8a9db1"
+# reload the configuration file
+bindsym $mod+Shift+c reload
 
-#Colors                 #border  #backgr   #text   #indicator #child_border
-client.focused          $focused    $focused    $ccolor $cindi   $focused
-client.focused_inactive $focused    $unfocused  $ccolor $cindiu   $unfocused
-client.unfocused        $focused    $unfocused  $ccolor $cindiu   $unfocused
-client.urgent           $focused    $unfocused  $ccolor $cindi   $unfocused
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
-# GAPS! :)
+# rofi
+bindsym $mod+d exec rofi -show drun -show-icons -icon-theme MY_ICON_THEME
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'"
+
+###									GAPS									###	
+
 gaps inner 10
 gaps outer 5
 
@@ -276,18 +250,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# Rounded Corners 
-#border_radium 10
-
-# Unused config
-
-# Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ unmute
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- unmute
-#bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
-
-# Screen brightness controls 
-#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
-#bindsym $mod+d exec --no-startup-id dmenu_run -i -fn 'DejaVu Sans-10' -p "Go Go Gadget" -w 500 -x 700 -nb '#0F0F0F'
-#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
