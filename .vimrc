@@ -22,7 +22,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'gregsexton/MatchTag'
 "Color highlight
-Plugin 'chrisbra/Colorizer'
+Plugin 'lilydjwg/colorizer'
+"Extra colorschemes
+Plugin 'rainglow/vim'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,3 +94,7 @@ let g:lightline = {
 
 " .rasi syntax highlighting
 au BufNewFile,BufRead /*.rasi setf css
+
+" Colorizer startup
+let g:colorizer_startup = 1
+let g:colorizer_maxlines = 500

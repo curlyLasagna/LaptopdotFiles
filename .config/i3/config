@@ -151,16 +151,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 # Wallpaper 
 exec_always --no-startup-id feh --bg-fill Pictures/Normie/Signals.jpg
 
-# Lock
-bindsym mod1 + ctrl + l exec ~/bash_scripts/lock.sh
-
 # Start up programs 
 exec_always --no-startup-id compton --config ~/.config/compton.conf 						# Compositor 
-exec --no-startup-id xset -b 																# Bells are dumb
+exec_always --no-startup-id ~/bash_scripts/defaultBar.sh									# Bars
 exec --no-startup-id nm-applet 																# Network manager applet 
 exec --no-startup-id redshift-gtk 															# My EYES!
-exec --no-startup-id dunst																	# dunst suddenly not working, df?
-exec_always --no-startup-id ~/bash_scripts/defaultBar.sh
 
 # Program hotkeys 
 bindsym $mod + c exec speedcrunch 															# Calculator
