@@ -14,6 +14,8 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 "Cool status line 
 Plugin 'itchyny/lightline.vim'
+"YouCompleteMe
+Plugin 'valloric/youcompleteme'
 "Directory listing
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
@@ -21,6 +23,7 @@ Plugin 'tpope/vim-surround'
 " HTML Plugins
 Plugin 'mattn/emmet-vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'Raimondi/delimitMate'
 "Color highlight
 Plugin 'lilydjwg/colorizer'
 "Extra colorschemes
@@ -42,6 +45,10 @@ filetype plugin indent on    " required
 "Custom keymaps
 cmap w!! w !sudo tee > /dev/null %
 
+"Custom Commands
+" CDC = Change to Directory of Current file
+command CDC cd %:p:h
+
 " Colorscheme
 colo elflord
 
@@ -59,12 +66,10 @@ set smarttab
 
 " vim-Terminal configuration
 set termwinsize=30*0
+" new split panes start at the bottom. Default top
 set splitbelow
 
-" CDC = Change to Directory of Current file
-command CDC cd %:p:h
-
-" Autostart NerdTree
+" Autostart NerdTree when creating new file
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -97,4 +102,4 @@ au BufNewFile,BufRead /*.rasi setf css
 
 " Colorizer startup
 let g:colorizer_startup = 1
-let g:colorizer_maxlines = 500
+let g:colorizer_maxlines = 10

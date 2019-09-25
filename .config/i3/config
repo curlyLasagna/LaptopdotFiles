@@ -197,8 +197,11 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# rofi
-bindsym $mod+d exec rofi -show drun -show-icons -icon-theme MY_ICON_THEME
+# rofi-menu 
+# TODO: Create a mode for the different rofi scripts 
+bindsym $mod+d exec ~/.config/rofi/scripts/appsmenu.sh 
+
+# bindsym $mod+d exec rofi -show drun -show-icons -icon-theme MY_ICON_THEME
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'"
