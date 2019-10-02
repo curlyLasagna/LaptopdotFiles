@@ -160,6 +160,7 @@ exec --no-startup-id redshift-gtk 															# My EYES!
 # Program hotkeys 
 bindsym $mod + c exec speedcrunch 															# Calculator
 bindsym $mod + p exec pavucontrol 															# Pulse gui audio
+bindsym $mod+z exec ~/.config/polybar/scripts/pmenu_1
 
 # xRandr rotations
 bindsym $mod + Shift + i exec xrandr --output eDP1 --rotate inverted 
@@ -204,8 +205,8 @@ bindsym $mod+d exec ~/.config/rofi/scripts/appsmenu.sh
 # bindsym $mod+d exec rofi -show drun -show-icons -icon-theme MY_ICON_THEME
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'i3-msg exit'"
-
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log out?' -B 'Yes' 'No'"
+bindsym $mod+Shift+e exec i3exit logout
 ###									GAPS									###	
 
 gaps inner 10

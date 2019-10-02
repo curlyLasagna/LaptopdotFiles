@@ -16,7 +16,7 @@ foreground = ${colors.foreground}
 ; Number of spaces to add at the beginning/end of the bar
 ; Individual side values can be defined using: 
 ; 	padding-{left,right}
-padding-left = 0
+padding-left = 2
 padding-right = 0
 
 ; Number of spaces to add before/after each module
@@ -27,15 +27,13 @@ module-margin-right = 1
 
 ; Fonts/Icons
 font-0 = Ubuntu Nerd Font:pixelsize=12;2
-font-1 = unifont:fontformat=truetype:pixelsize=10:antialias=false;2
-font-2 = FuraMono Nerd Font Mono:pixelsize=14;3  
-font-3 = FontAwesome:size=9:antialias=false;1
-font-4 = Segoe UI Symbol:pixelsize=11;2
+font-1 = icomoon:pixelsize=11;3
+font-2 = FontAwesome:size=12:;1
 
 ; Modules location
-modules-left = i3 xwindow
-modules-center = date spotify pulseaudio powermenu 
-modules-right =  battery wlan
+modules-left = powermenu i3 xwindow
+modules-center = date spotify 
+modules-right =  pulseaudio battery 
 
 ; Tray settings
 tray-maxsize = 16
