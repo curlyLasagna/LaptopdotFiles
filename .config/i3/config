@@ -145,15 +145,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master 1+ toggle
 
 # Screen brightness controls 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +2
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -2
 
 # Wallpaper 
 exec_always --no-startup-id feh --bg-fill Pictures/Normie/Signals.jpg
 
 # Start up programs 
 exec_always --no-startup-id compton --config ~/.config/compton.conf 						# Compositor 
-exec_always --no-startup-id ~/bash_scripts/defaultBar.sh									# Bars
+exec_always --no-startup-id lockScreen									
 exec --no-startup-id nm-applet 																# Network manager applet 
 exec --no-startup-id redshift-gtk 															# My EYES!
 
@@ -161,6 +161,9 @@ exec --no-startup-id redshift-gtk 															# My EYES!
 bindsym $mod + c exec speedcrunch 															# Calculator
 bindsym $mod + p exec pavucontrol 															# Pulse gui audio
 bindsym $mod+z exec ~/.config/polybar/scripts/pmenu_1
+
+# Lock script 
+bindsym Ctrl+Mod1+l exec ~/bash_scripts/lock.sh  
 
 # xRandr rotations
 bindsym $mod + Shift + i exec xrandr --output eDP1 --rotate inverted 

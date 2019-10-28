@@ -25,3 +25,4 @@ alias class="xprop | grep 'CLASS'"
 alias wifi="nmcli networking off && nmcli networking on"			# In case wifi stops working
 alias reloadDunst='killall dunst; notify-send testing'
 alias ElScrot='scrot ~/Pictures/ScrotShots/%b%d::%H%M.png' 
+alias lockScreen='i3lock -u -i ~/Pictures/i3LockGallery/BlueScreen.png'
