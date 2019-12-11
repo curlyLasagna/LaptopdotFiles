@@ -123,6 +123,7 @@ mode "Move" {
 bindsym $mod+m mode "Move"
 bindsym $mod+r mode "Resize"
 
+# i3-bar
 # py3status 
 #bar {
 #
@@ -152,14 +153,16 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -2
 exec_always --no-startup-id feh --bg-fill Pictures/Normie/Signals.jpg
 
 # Start up programs 
-exec_always --no-startup-id compton --config ~/.config/compton.conf 						# Compositor 
-exec_always --no-startup-id lockScreen									
-exec --no-startup-id nm-applet 																# Network manager applet 
-exec --no-startup-id redshift-gtk 															# My EYES!
+exec_always --no-startup-id ~/bash_scripts/defaultBar.sh
+exec_always --no-startup-id compton --config ~/.config/compton.conf 						 
+exec --no-startup-id nm-applet 																 
+exec --no-startup-id redshift-gtk 															
+# xautolock 
+exec --no-startup-id xautolock -detectsleep -time 8 -locker "~/bash_scripts/lock.sh" -notify 30 -notifier "notify-send 'Locking...' 'Are you still there?'" -corners 0-0+0  
 
 # Program hotkeys 
-bindsym $mod + c exec speedcrunch 															# Calculator
-bindsym $mod + p exec pavucontrol 															# Pulse gui audio
+bindsym $mod + c exec speedcrunch 															
+bindsym $mod + p exec pavucontrol 															
 bindsym $mod+z exec ~/.config/polybar/scripts/pmenu_1
 
 # Lock script 

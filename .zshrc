@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="takashiyoshida"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -17,7 +17,7 @@ ZSH_THEME="gnzh"
 #ZSH_THEME_RANDOM_CANDIDATES=( 
 #	jonathan
 #	xiong-chiamiov
-#
+#	gnzh
 #)
 
 # Uncomment the following line to use case-sensitive completion.
@@ -62,7 +62,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -116,3 +116,5 @@ if [ -f ~/.zshrc.aliases ]; then
 else
 	print "No alias file found"
 fi
+
+export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.sock
